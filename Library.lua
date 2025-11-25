@@ -39,56 +39,9 @@ local offsets = json_decode(jsonString)
 
 offsets = offsets.Offsets
 
-local MemoryManager = {}
+local MemoryManager = {
 
-local function typeof(v)
-
-	if type(v) == "table" or type(v) == "userdata" then
-		if v.ClassName then
-			return "Instance"
-		elseif v.Address then
-			return "Instance"
-		end
-	end
-	return type(v)
-end
-
-
-function decimalToHex(decimal)
-	return "0x" .. string.format("%X", decimal)
-end
-
-
-function MemoryManager:GetFrameVisible(Address)
-	if typeof(Address) == "Instance" then
-		Address = Address.Address
-	end
-	return memory_read("byte", Address +  decimalToHex(offsets.GuiObject.Visible)) == 1
-end
-
-function MemoryManager:IsScreenGuiEnabled(Address)
-	if typeof(Address) == "Instance" then
-		Address = Address.Address
-	end
-	return memory_read("byte", Address +  decimalToHex(offsets.GuiObject.ScreenGui_Enabled)) == 1
-end
-
-function MemoryManager:GetGuiObjectRotation(Address)
-	if typeof(Address) == "Instance" then
-		Address = Address.Address
-	end
-	return memory_read("float", Address +  decimalToHex(offsets.GuiObject.Rotation))
-end
-
-function MemoryManager:GetImageId(Address)
-	if typeof(Address) == "Instance" then
-		Address = Address.Address
-	end
-	return  memory_read("string",memory_read("uintptr_t",Address + offsets.GuiObject.Image) + 0x0)
-end
-
-function MemoryManager:GetServerIp()
-	return memory_read("string", memory_read("uintptr_t",game.Address + offsets.DataModel.ServerIP) + 0x0)
-end
-
-return MemoryManager
+    GetServerIp = function()
+	    return memory_read("string", memory_read("uintptr_t",game.Address + offsets.DataModel.ServerIP) + 0x0)
+    end
+}
