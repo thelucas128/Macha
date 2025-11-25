@@ -3,8 +3,7 @@ local offsets = json.decode(jsonString)
 
 offsets = offsets.Offsets
 
-
-local MemoryManager = {
+MemoryManager = {
     typeof = function(v)
         if type(v) == "table" or type(v) == "userdata" then
             if v.ClassName then
