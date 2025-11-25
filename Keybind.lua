@@ -1,4 +1,4 @@
-Keybind = {
+Keybind = json.decode([[Keybind = {
     "0": 48,
     "1": 49,
     "2": 50,
@@ -100,3 +100,4 @@ Keybind = {
     "closebracket": 221,
     "singlequote": 222,
 }
+]])
