@@ -22,21 +22,21 @@ MemoryManager = {
         if MemoryManager.typeof(Address) == "Instance" then
             Address = Address.Address
         end
-        return memory_read("byte", Address +  decimalToHex(offsets.GuiObject.Visible)) == 1
+        return memory_read("byte", Address +  offsets.GuiObject.Visible) == 1
     end,
 
     IsScreenGuiEnabled = function(Address : number?)
         if MemoryManager.typeof(Address) == "Instance" then
             Address = Address.Address
         end
-        return memory_read("byte", Address +  decimalToHex(offsets.GuiObject.ScreenGui_Enabled)) == 1
+        return memory_read("byte", Address +  offsets.GuiObject.ScreenGui_Enabled) == 1
     end,
 
     GetGuiObjectRotation = function(Address : number?)
         if MemoryManager.typeof(Address) == "Instance" then
             Address = Address.Address
         end
-        return memory_read("float", Address +  decimalToHex(offsets.GuiObject.Rotation))
+        return memory_read("float", Address +  offsets.GuiObject.Rotation)
     end,
 
 
