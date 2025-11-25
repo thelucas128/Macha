@@ -90,3 +90,4 @@ end
 function MemoryManager:GetServerIp()
 	return memory_read("string", memory_read("uintptr_t",game.Address + offsets.DataModel.ServerIP) + 0x0)
 end
+
