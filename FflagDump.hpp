@@ -1,4 +1,4 @@
-#include <cstdint>
+#pragma once
 
 namespace FFlags 
 {
