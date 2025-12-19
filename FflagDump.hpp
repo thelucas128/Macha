@@ -1,7 +1,7 @@
-#pragma once
 #include <cstdint>
 
-namespace FFlags {
+namespace FFlags 
+{
     inline uintptr_t StartRbxStorageInitRighAfterFlags = 0x6787138;
     inline uintptr_t PolicyServiceReportIsNotSubjectToChinaPolicies = 0x67ab100;
     inline uintptr_t JointStepParallelBatchSize = 0x677092c;
