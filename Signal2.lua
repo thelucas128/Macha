@@ -108,7 +108,7 @@ type CreateSignal = typeof(
 )
 
 -- Spawn function.
-local spawnThread = if script:GetAttribute("Deferred") then task.defer else task.spawn
+local spawnThread = task.spawn
 
 -- Setup reusable callback threads.
 local threads = {}
