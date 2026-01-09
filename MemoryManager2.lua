@@ -72,6 +72,32 @@ function MemoryManager.GetRotationMatrix(part)
     return m
 end
 
+function MemoryManager.GetLookVector(part)
+    local m = MemoryManager.GetRotationMatrix(part)
+    if not m then
+        return nil
+    end
+    return Vector3.new(-m[2], -m[5], -m[8])
+end
+
+-- Get RightVector (X axis)
+function MemoryManager.GetRightVector(part)
+    local m = MemoryManager.GetRotationMatrix(part)
+    if not m then
+        return nil
+    end
+    return Vector3.new(m[0], m[3], m[6])
+end
+
+-- Get UpVector (Y axis)
+function MemoryManager.GetUpVector(part)
+    local m = MemoryManager.GetRotationMatrix(part)
+    if not m then
+        return nil
+    end
+    return Vector3.new(m[1], m[4], m[7])
+end
+
 function MemoryManager.GetEulerAngles(part)
     local m = MemoryManager.GetRotationMatrix(part)
     if not m then
