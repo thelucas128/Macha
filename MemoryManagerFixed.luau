@@ -65,7 +65,7 @@ function MemoryManager.GetRotationMatrix(part)
     
     local m = {}
     for i = 0, 8 do
-        m[i] = memory_read("float", primitive + offsetsData.Rotation  + (i * 0x04))
+        m[i] = memory_read("float", primitive + offsetsData.CFrame  + (i * 0x04))
     end
     
     return m
